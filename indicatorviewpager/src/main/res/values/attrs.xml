@@ -1,0 +1,28 @@
+<resources>
+
+    <attr name="indicatorPosition">
+        <flag name="top" value="0x00" />
+        <flag name="bottom" value="0x01" />
+    </attr>
+
+    <attr name="indicatorShape">
+        <flag name="square" value="0x00" />
+        <flag name="circle" value="0x01" />
+    </attr>
+
+    <attr name="chart_type">
+        <flag name="pie" value="0x00"/>
+        <flag name="donut" value="0x01"/>
+    </attr>
+
+    <declare-styleable name="IndicatorViewPager">
+        <attr name="indicatorShape" />
+        <attr name="indicatorPosition" />
+        <attr name="indicatorColor" format="color" />
+        <attr name="indicatorSelectionColor" format="color" />
+        <attr name="indicatorVerticalMargin" format="dimension" />
+        <attr name="indicatorPadding" format="dimension" />
+        <attr name="indicatorRadius" format="dimension" />
+    </declare-styleable>
+
+</resources>
