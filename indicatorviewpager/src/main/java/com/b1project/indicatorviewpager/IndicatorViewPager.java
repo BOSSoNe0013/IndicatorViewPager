@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.support.v4.view.PagerAdapter;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 
 /**
@@ -75,7 +76,8 @@ public class IndicatorViewPager extends android.support.v4.view.ViewPager {
             float padding = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, mIndicatorPadding, r.getDisplayMetrics());
             float margin = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, mIndicatorVerticalMargin, r.getDisplayMetrics());
             float radius = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, mIndicatorRadius, r.getDisplayMetrics());
-            float cx = width / 2 - ((radius + padding) * 2 * getChildCount() / 2) + padding + mCurrentOffset;
+            float indicatorWidth = ((2 * radius + padding) * getChildCount()) - padding;
+            float cx = (width - indicatorWidth) / 2 + radius + mCurrentOffset;
             float cy = padding + radius + margin;
             float tx = cx - radius;
             float ty = margin;
@@ -108,7 +110,7 @@ public class IndicatorViewPager extends android.support.v4.view.ViewPager {
                         canvas.drawCircle(cx, cy, radius, mPaint);
                         break;
                 }
-                cx += 2 * (radius + padding);
+                cx += 2 * radius + padding;
                 tx = cx - radius;
             }
             canvas.restore();
