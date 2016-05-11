@@ -1,6 +1,8 @@
 language: android
 jdk: oraclejdk7
 env:
+  global:
+    - ADB_INSTALL_TIMEOUT=8
   matrix:
     - ANDROID_TARGET=android-21  ANDROID_ABI=armeabi-v7a
 
@@ -25,10 +27,6 @@ android:
     # if you need to run emulator(s) during your tests
     - sys-img-armeabi-v7a-android-22
     #- sys-img-x86-android-17
-
-env:
-  global:
-    - ADB_INSTALL_TIMEOUT=8
 
 before_script:
   # Create and start emulator
